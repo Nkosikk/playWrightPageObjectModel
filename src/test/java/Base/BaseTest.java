@@ -1,6 +1,7 @@
 package Base;
 
 import BrowserFactory.PlayWrightFactory;
+import Pages.InventoryPage;
 import Pages.LoginPage;
 import com.microsoft.playwright.Page;
 import org.testng.annotations.AfterTest;
@@ -12,7 +13,8 @@ public class BaseTest {
     PlayWrightFactory pf;
     protected Page page;
     protected LoginPage loginPage;
-    Properties prop;
+    protected InventoryPage inventoryPage;
+    protected Properties prop;
 
 
     @BeforeTest
@@ -22,7 +24,12 @@ public class BaseTest {
         pf.initBrowser(prop);
         page = pf.getPage(); // Ensure the page is retrieved here
         loginPage = new LoginPage(page); // Pass the initialized page to LoginPage
+        inventoryPage = new InventoryPage(page); // Pass the initialized page to LoginPage
+
+
     }
+
+
 
     @AfterTest
     public void tearDown() {
