@@ -33,6 +33,6 @@ build/
 allure-results/
 ### VS Code ###
 .vscode/
-
+screenshots/
 ### Mac OS ###
 .DS_Store

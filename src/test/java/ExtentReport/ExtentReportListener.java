@@ -94,7 +94,7 @@ public class ExtentReportListener implements ITestListener {
     public synchronized void onTestSkipped(ITestResult result) {
         System.out.println(result.getMethod().getMethodName() + " Skipped!");
         test.get().skip(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot()).build());
-        test.get().getModel().setEndTime(result.getTestContext().getEndDate());
+        test.get().getModel().setEndTime(getTime(result.getEndMillis()));
     }
 
     public synchronized void onTestFailedButWithinSuccessPercentage(ITestResult result) {

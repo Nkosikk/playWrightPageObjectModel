@@ -19,7 +19,7 @@ public class InventoryPage {
     }
 
     public boolean verifyLoginSuccess() {
-        page.isVisible(productSelector);
+        page.waitForSelector(productSelector); // Updated selector with '#'
         if(page.isVisible(productSelector)) {
             System.out.println("Login successful and product page is visible.");
             return true;
