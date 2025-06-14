@@ -6,12 +6,16 @@ import java.beans.beancontext.BeanContext;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 public class PlayWrightFactory {
 
+    //ToDO implement threadLocal when paralel setup
+
     private Browser browser;
-    private Page page;
+    private static Page page;
     BrowserContext browserContext;
     Properties prop;
 
@@ -37,7 +41,7 @@ public class PlayWrightFactory {
         page.navigate(prop.getProperty("url").trim());
     }
 
-    public Page getPage() {
+    public static Page getPage() {
         return page;
     }
 
@@ -56,5 +60,11 @@ public class PlayWrightFactory {
             e.printStackTrace();
         }
         return prop;
+    }
+
+    public static String takeScreenshot() {
+        String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+        getPage().screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));
+        return path;
     }
 }

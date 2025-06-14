@@ -32,7 +32,7 @@ public class LoginTests extends BaseTest {
     @Test(dependsOnMethods = "login")
     public void verifyLandingPageDisplayed() {
         String title = inventoryPage.getLandingPageTile();
-        Assert.assertEquals(title, Login_Page_Title, "Products");
+        Assert.assertEquals(title, Login_Page_Title, "ProductsN");
     }
 
     @Test(dependsOnMethods = "verifyLandingPageDisplayed")

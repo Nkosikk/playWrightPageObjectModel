@@ -18,7 +18,7 @@ public class LoginPage {
         return page.title();
     }
 
-    public void login(String userName,String password) {
+    public boolean login(String userName, String password) {
 //        page.waitForSelector("#username"); // Updated selector with '#'
 
 //        page.isVisible(usernameID);
@@ -26,5 +26,6 @@ public class LoginPage {
         page.fill(passwordID, password);
         page.click(loginButtonID); // Click login button
 
+        return false;
     }
 }
