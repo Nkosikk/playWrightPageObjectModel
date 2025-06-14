@@ -63,7 +63,7 @@ public class PlayWrightFactory {
     }
 
     public static String takeScreenshot() {
-        String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+        String path = System.getProperty("user.dir") + "/test-output/screenshots/" + System.currentTimeMillis() + ".png";
         getPage().screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));
         return path;
     }
